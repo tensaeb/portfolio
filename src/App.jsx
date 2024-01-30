@@ -7,11 +7,13 @@ import Portfolio from "./pages/portfolio/Portfolio";
 import Contact from "./pages/contact/Contact";
 //components
 import Navbar from "./components/Navbar/Navbar";
+import Themes from "./components/Theme/Themes.jsx";
 
 function App() {
   return (
     <BrowserRouter>
       <Navbar />
+      <Themes />
       <Routes>
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />
