@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { NavLink } from "react-router-dom";
 import "./navbar.css";
-import { links } from "../data";
+import { links } from "../../data";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);

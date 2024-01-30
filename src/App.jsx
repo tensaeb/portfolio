@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 //pages
-import Home from "./pages/home/Home";
+import Home from "./pages/home/Home.jsx";
 import About from "./pages/about/About";
 import Portfolio from "./pages/portfolio/Portfolio";
 import Contact from "./pages/contact/Contact";
 //components
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
