@@ -21,13 +21,14 @@
 
 .home_title {
   position: relative;
+  color: var(--first-color);
   font-size: var(--h1-font-size);
   line-height: 1.24;
   padding-left: 70px;
 }
 
 .home_title span {
-  color: var(--first-color);
+  color: var(--text-color);
 }
 
 .home_title::before {
