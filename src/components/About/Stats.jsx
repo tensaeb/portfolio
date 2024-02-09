@@ -1,17 +1,24 @@
-import parse from "html-react-parser";
-import { stats } from "../../data";
+/* eslint-disable react/prop-types */
+// import parse from "html-react-parser";
+// import { stats } from "../../data";
 
-const Stats = () => {
+const Stats = ({ item }) => {
   return (
     <>
-      {stats.map(({ no, title }, index) => {
-        return (
-          <div className="stats_box" key={index}>
-            <h3 className="stats_no">{no}</h3>
-            <p className="stats_title">{parse(title)}</p>
-          </div>
-        );
-      })}
+      <div className="stats_box">
+        <h3 className="stats_no">{item.yoe}</h3>
+        <p className="stats_title">
+          Years of <br />
+          Experience
+        </p>
+      </div>
+      <div className="stats_box">
+        <h3 className="stats_no">{item.completedProjects}</h3>
+        <p className="stats_title">
+          Projects <br />
+          Completed
+        </p>
+      </div>
     </>
   );
 };

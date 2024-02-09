@@ -3,8 +3,16 @@
 import { useState } from "react";
 
 import Close from "../../assets/Close.svg";
+import {
+  FiCode,
+  FiFile,
+  FiFileText,
+  FiGlobe,
+  FiImage,
+  FiMessageSquare,
+} from "react-icons/fi";
 
-const PortfolioItem = ({ img, title, details }) => {
+const PortfolioItem = ({ item }) => {
   const [modal, setModal] = useState(false);
 
   const toggleModal = () => {
@@ -13,9 +21,9 @@ const PortfolioItem = ({ img, title, details }) => {
 
   return (
     <div className="portfolio_item">
-      <img src={img} alt="" className="portfolio_img" />
+      <img src={item.img} alt="" className="portfolio_img" />
       <div className="portfolio_hover" onClick={toggleModal}>
-        <h3 className="portfolio_title">{title}</h3>
+        <h3 className="portfolio_title">{item.title}</h3>
       </div>
       {modal && (
         <div className="portfolio_modal">
@@ -26,23 +34,52 @@ const PortfolioItem = ({ img, title, details }) => {
               className="modal_close"
               onClick={toggleModal}
             />
-            <h3 className="modal_title">{title}</h3>
-            <ul className="modal_list grid">
-              {details.map(({ icon, title, desc }, index) => {
-                return (
-                  <li className="modal_item" key={index}>
-                    <span className="item_icon">{icon}</span>
+            <div className="portfolio_modal-desc">
+              <h3 className="modal_title">{item.title}</h3>
 
-                    <div>
-                      <span className="item_title">{title}</span>
-                      <span className="item_details">{desc}</span>
-                    </div>
-                  </li>
-                );
-              })}
-            </ul>
+              <div className="modal_list grid">
+                <div className="modal_item">
+                  <div className="modal_desc-title">
+                    <span className="item_icon">
+                      <FiFile />
+                    </span>
+                    <span className="item_title">{item.title}</span>
+                  </div>
+                  <div className="modal_desc-title">
+                    <span className="item_icon">
+                      <FiMessageSquare />
+                    </span>
+                    <span className="item_details">{item.description}</span>
+                  </div>
+                </div>
+                <div className="modal_item">
+                  <div className="modal_desc-title">
+                    <span className="item_icon">
+                      <FiGlobe />
+                    </span>
+                    <span className="item_details">
+                      <a
+                        href={item.previewLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Preview Link
+                      </a>
+                    </span>
+                  </div>
+                  <div className="modal_desc-title">
+                    <span className="item_icon">
+                      <FiCode />
+                    </span>
+                    <span className="item_details">
+                      {item.languages.join(", ")}
+                    </span>
+                  </div>
+                </div>
+              </div>
 
-            <img src={img} alt="" className="modal_img" />
+              <img src={item.img} alt="" className="modal_img" />
+            </div>
           </div>
         </div>
       )}

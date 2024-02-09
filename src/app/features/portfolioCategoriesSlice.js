@@ -1,30 +1,25 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const initialState = {
-  personalInfoData: null,
+  portfolioCatData: null,
   loading: false,
   error: null,
 };
 
-const url = "http://localhost:7654/personalInfo";
+const url = "http://localhost:7654/portfolio-categories";
 // const url = import.meta.env.API_URL;
 
-export const fetchPersonalInfoData = createAsyncThunk(
-  "personalInfo",
+export const fetchPortfolioCatData = createAsyncThunk(
+  "portfolioCategories",
   async () => {
     try {
-      console.log("Fetching data from:", url);
-
       const response = await fetch(url);
-
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
 
-      const personalInfoData = await response.json();
-      console.log("Personal Info fetched successfully:", personalInfoData);
-
-      return personalInfoData;
+      const portfolioCatData = await response.json();
+      return portfolioCatData;
     } catch (error) {
       console.error("Error fetching Personal Info data:", error.message);
       throw error; // Re-throw the error so it goes to the rejected action
@@ -32,24 +27,24 @@ export const fetchPersonalInfoData = createAsyncThunk(
   }
 );
 
-const personalInfoSlice = createSlice({
-  name: "personalInfo",
+const portfolioCategorySlice = createSlice({
+  name: "portfolioCategory",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchPersonalInfoData.pending, (state) => {
+      .addCase(fetchPortfolioCatData.pending, (state) => {
         state.loading = true;
       })
-      .addCase(fetchPersonalInfoData.fulfilled, (state, action) => {
+      .addCase(fetchPortfolioCatData.fulfilled, (state, action) => {
         state.loading = false;
-        state.personalInfoData = action.payload.data;
+        state.portfolioCatData = action.payload.data;
       })
-      .addCase(fetchPersonalInfoData.rejected, (state, action) => {
+      .addCase(fetchPortfolioCatData.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       });
   },
 });
 
-export default personalInfoSlice.reducer;
+export default portfolioCategorySlice.reducer;

@@ -4,7 +4,7 @@ import { FaArrowRight } from "react-icons/fa6";
 import "./home.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { fetchData } from "../../app/features/personalInfoSlice";
+import { fetchPersonalInfoData } from "../../app/features/personalInfoSlice";
 import { toast } from "react-toastify";
 import Loading from "../../components/Loading";
 import { TypeAnimation } from "react-type-animation";
@@ -14,7 +14,7 @@ const Home = () => {
   const personalInfoState = useSelector((state) => state.personalInfo);
 
   useEffect(() => {
-    dispatch(fetchData()).catch((error) => {
+    dispatch(fetchPersonalInfoData()).catch((error) => {
       // Handle errors here or in the Redux slice
       toast.error(error.message, { position: toast.POSITION.BOTTOM_CENTER });
     });
@@ -26,7 +26,11 @@ const Home = () => {
     return <Loading />;
   }
 
-  const { data, error } = personalInfoState;
+  const { personalInfoData, error } = personalInfoState;
+
+  if (!personalInfoData) {
+    return <Loading />;
+  }
 
   if (error) {
     return <div>Error: {error}</div>;
@@ -36,8 +40,8 @@ const Home = () => {
       {/* <Loading /> */}
       <section className="home section grid">
         {/* Map over the data array and render images */}
-        {data &&
-          data.map((item, index) => (
+        {personalInfoData &&
+          personalInfoData.map((item, index) => (
             <img
               key={index}
               className="home_img"
