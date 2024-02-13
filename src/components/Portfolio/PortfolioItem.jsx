@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
 
-import Close from "../../assets/Close.svg?react";
+import { AiFillCloseCircle } from "react-icons/ai";
 import { FiCode, FiFile, FiGlobe, FiMessageSquare } from "react-icons/fi";
 
 const PortfolioItem = ({ item }) => {
@@ -21,7 +21,11 @@ const PortfolioItem = ({ item }) => {
       {modal && (
         <div className="portfolio_modal">
           <div className="portfolio_modal-content">
-            <Close alt="" className="modal_close" onClick={toggleModal} />
+            <AiFillCloseCircle
+              alt=""
+              className="modal_close"
+              onClick={toggleModal}
+            />
             <div className="portfolio_modal-desc">
               <h3 className="modal_title">{item.title}</h3>
 
