@@ -2,15 +2,8 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
 
-import Close from "../../assets/Close.svg";
-import {
-  FiCode,
-  FiFile,
-  FiFileText,
-  FiGlobe,
-  FiImage,
-  FiMessageSquare,
-} from "react-icons/fi";
+import Close from "../../assets/Close.svg?react";
+import { FiCode, FiFile, FiGlobe, FiMessageSquare } from "react-icons/fi";
 
 const PortfolioItem = ({ item }) => {
   const [modal, setModal] = useState(false);
@@ -28,12 +21,7 @@ const PortfolioItem = ({ item }) => {
       {modal && (
         <div className="portfolio_modal">
           <div className="portfolio_modal-content">
-            <img
-              src={Close}
-              alt=""
-              className="modal_close"
-              onClick={toggleModal}
-            />
+            <Close alt="" className="modal_close" onClick={toggleModal} />
             <div className="portfolio_modal-desc">
               <h3 className="modal_title">{item.title}</h3>
 
