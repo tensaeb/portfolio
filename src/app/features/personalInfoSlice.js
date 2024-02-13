@@ -6,8 +6,13 @@ const initialState = {
   error: null,
 };
 
-const url = "http://localhost:7654/personalInfo";
-// const url = import.meta.env.API_URL;
+const url = `${import.meta.env.VITE_API_URL}personalInfo`;
+
+// const url = `${api_url}personalInfo`;
+
+console.log("====================================");
+console.log("URL: ", url);
+console.log("====================================");
 
 export const fetchPersonalInfoData = createAsyncThunk(
   "personalInfo",

@@ -6,8 +6,8 @@ const initialState = {
   error: null,
 };
 
-const url = "http://localhost:7654/resumes";
-// const url = import.meta.env.API_URL;
+// const url = "http://localhost:7654/resumes";
+const url = `${import.meta.env.VITE_API_URL}resumes`;
 
 export const fetchResumeData = createAsyncThunk("resume", async () => {
   try {

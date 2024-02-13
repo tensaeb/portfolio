@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -6,7 +7,7 @@ const initialState = {
   error: null,
 };
 
-const contactUrl = "http://localhost:7654/contact"; // Update the URL accordingly
+const contactUrl = `${import.meta.env.VITE_API_URL}contact`;
 
 export const sendContact = createAsyncThunk(
   "sendContact",

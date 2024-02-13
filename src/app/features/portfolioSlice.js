@@ -6,8 +6,8 @@ const initialState = {
   error: null,
 };
 
-const url = "http://localhost:7654/portfolios";
-// const url = import.meta.env.API_URL;
+// const url = "http://localhost:7654/portfolios";
+const url = `${import.meta.env.VITE_API_URL}portfolios`;
 
 export const fetchPortfolioData = createAsyncThunk("portfolios", async () => {
   try {
