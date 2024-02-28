@@ -286,10 +286,10 @@
 }
 
 @media screen and (max-width: 350px) {
-  .loading {
+  /* .loading {
     width: 25px;
     height: 25px;
-  }
+  } */
 
   .stats {
     grid-template-columns: 1fr;

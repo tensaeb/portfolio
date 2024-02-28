@@ -14,7 +14,7 @@ const PortfolioItem = ({ item }) => {
 
   return (
     <div className="portfolio_item">
-      <img src={item.img} alt="" className="portfolio_img" />
+      <img src={item.img} alt="" className="portfolio_img" loading="lazy" />
       <div className="portfolio_hover" onClick={toggleModal}>
         <h3 className="portfolio_title">{item.title}</h3>
       </div>
@@ -70,7 +70,7 @@ const PortfolioItem = ({ item }) => {
                 </div>
               </div>
 
-              <img src={item.img} alt="" className="modal_img" />
+              <img src={item.img} alt="" className="modal_img" loading="lazy" />
             </div>
           </div>
         </div>

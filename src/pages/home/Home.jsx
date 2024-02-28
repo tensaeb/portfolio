@@ -54,14 +54,14 @@ const Home = () => {
         <div className="home_content">
           <div className="home_data">
             <h1 className="home_title">
-              I&apos;m Tensae Befekadu <br />
+              I&apos;m Tensae B. Zeleke <br />
               <TypeAnimation
                 sequence={[
+                  "Software Engineer",
+                  4000,
                   "Full-stack Developer",
                   4000, //4sec
                   "UI/UX Designer",
-                  4000,
-                  "Front-end Developer",
                   4000,
                 ]}
                 wrapper="span"
@@ -70,12 +70,14 @@ const Home = () => {
               />
             </h1>
             <p className="home_description">
-              I am an Ethiopian software Engineer focused on developing clean
-              and user-freandly experiences, I am passionate about building
-              excellent products that improves the lives of those around me.
+              I am an Ethiopian software engineer who focuses on developing
+              clean and user-friendly experiences. I am passionate about
+              building apps that resonate with users. From creating wireframes
+              to deploying functional solutions, I meticulously translate design
+              visions into reality.
             </p>
             <Link to="/about" className="button">
-              More About Me{" "}
+              More About Me
               <span className="button_icon">
                 <FaArrowRight />
               </span>

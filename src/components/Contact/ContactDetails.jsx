@@ -1,10 +1,9 @@
 import {
   FaDribbble,
   FaEnvelopeOpen,
-  FaFacebookF,
+  FaGithub,
   FaPhoneSquareAlt,
   FaTwitter,
-  FaYoutube,
 } from "react-icons/fa";
 
 const ContactDetails = () => {
@@ -21,7 +20,9 @@ const ContactDetails = () => {
           <FaEnvelopeOpen className="info_icon" />
           <div>
             <span className="info_title">Mail me</span>
-            <h4 className="info_desc">tensaeb2017@gmail.com</h4>
+            <h4 className="info_desc">
+              <a href="mailto:tensaeb2017@gmail.com">tensaeb2017@gmail.com</a>
+            </h4>
           </div>
         </div>
 
@@ -29,24 +30,26 @@ const ContactDetails = () => {
           <FaPhoneSquareAlt className="info_icon" />
           <div>
             <span className="info_title">Call me</span>
-            <h4 className="info_desc">+251961146646</h4>
+            <h4 className="info_desc">
+              <a href="tel:+251961146646">+251961146646</a>
+            </h4>
           </div>
         </div>
       </div>
 
       <div className="contact_socials">
-        <a href="https://facebook.com" className="contact_social-link">
-          <FaFacebookF />
+        <a href="https://github.com/tensaeb" className="contact_social-link">
+          <FaGithub />
         </a>
-        <a href="https://twitter.com" className="contact_social-link">
-          <FaTwitter />
-        </a>
-        <a href="https://youtube.com" className="contact_social-link">
-          <FaYoutube />
-        </a>
-        <a href="https://dribbble.com" className="contact_social-link">
+        <a href="https://dribbble.com/tensaeb" className="contact_social-link">
           <FaDribbble />
         </a>
+        <a href="https://twitter.com/tensaeb" className="contact_social-link">
+          <FaTwitter />
+        </a>
+        {/* <a href="https://youtube.com" className="contact_social-link">
+                <FaYoutube />
+              </a> */}
       </div>
     </div>
   );

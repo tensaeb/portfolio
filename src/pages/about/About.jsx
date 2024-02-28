@@ -1,4 +1,3 @@
-import { FaDownload } from "react-icons/fa";
 //component
 import Info from "../../components/About/Info";
 // import CV from "../../assets/CV.pdf";
@@ -15,6 +14,7 @@ import Loading from "../../components/Loading";
 import { fetchStatsData } from "../../app/features/statsSlice";
 import { fetchSkillsData } from "../../app/features/skillsSlice";
 import { fetchResumeData } from "../../app/features/resumeSlice";
+import { FaDribbble, FaGithub, FaTwitter } from "react-icons/fa";
 
 const About = () => {
   const dispatch = useDispatch();
@@ -78,17 +78,29 @@ const About = () => {
                   return <Info item={item} key={item.id} />;
                 })}
             </ul>
-            <a
-              // href={CV}
-              download=""
-              href="https://firebasestorage.googleapis.com/v0/b/portfolio-44b69.appspot.com/o/CV%2FEUROPASS%20CV.pdf?alt=media&token=38bcca10-882a-48fe-83da-df2b3f362000"
-              className="button"
-            >
-              Download CV
-              <span className="button_icon">
-                <FaDownload />
-              </span>
-            </a>
+            <div className="contact_socials">
+              <a
+                href="https://github.com/tensaeb"
+                className="contact_social-link"
+              >
+                <FaGithub />
+              </a>
+              <a
+                href="https://dribbble.com/tensaeb"
+                className="contact_social-link"
+              >
+                <FaDribbble />
+              </a>
+              <a
+                href="https://twitter.com/tensaeb"
+                className="contact_social-link"
+              >
+                <FaTwitter />
+              </a>
+              {/* <a href="https://youtube.com" className="contact_social-link">
+                <FaYoutube />
+              </a> */}
+            </div>
           </div>
           <div className="stats grid">
             {statsData &&

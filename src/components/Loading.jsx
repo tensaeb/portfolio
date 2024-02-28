@@ -9,6 +9,8 @@ const Loading = () => {
       stroke="light"
       state="in-reveal"
       style={{
+        width: "100px",
+        height: "100px",
         position: "absolute",
         top: "50%",
         left: "50%",
