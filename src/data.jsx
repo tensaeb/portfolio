@@ -61,88 +61,93 @@ export const personalInfo = [
   {
     id: 1,
     title: "First Name : ",
-    description: "Steve",
+    description: "Tensae",
   },
 
   {
     id: 2,
-    title: "Last Name : ",
-    description: "Milner",
+    title: "Middle Name : ",
+    description: "Befekadu",
   },
-
   {
     id: 3,
-    title: "Age : ",
-    description: "27 Years",
+    title: "Last Name : ",
+    description: "Zeleke",
   },
 
   {
     id: 4,
-    title: "Nationality : ",
-    description: "Tunisian",
+    title: "Age : ",
+    description: "26 Years",
   },
+
+  // {
+  //   id: 5,
+  //   title: "Nationality : ",
+  //   description: "Ethopian",
+  // },
+
+  // {
+  //   id: 6,
+  //   title: "Freelance : ",
+  //   description: "Available",
+  // },
 
   {
     id: 5,
-    title: "Freelance : ",
-    description: "Available",
+    title: "Address : ",
+    description: "Addis Ababa, Ethiopia",
   },
 
   {
     id: 6,
-    title: "Address : ",
-    description: "Tunis",
+    title: "Phone : ",
+    description: "+251961146646",
   },
 
   {
     id: 7,
-    title: "Phone : ",
-    description: "+21621184010",
+    title: "Email : ",
+    description: "tensaeb2017@gmail.com",
   },
+
+  // {
+  //   id: 8,
+  //   title: "Skype : ",
+  //   description: "tensaeb",
+  // },
 
   {
     id: 8,
-    title: "Email : ",
-    description: "you@mail.com",
-  },
-
-  {
-    id: 9,
-    title: "Skype : ",
-    description: "steve.milner",
-  },
-
-  {
-    id: 10,
     title: "Langages : ",
-    description: "French, English",
+    description: "Amharic, English",
   },
 ];
 
 export const stats = [
   {
     id: 1,
-    no: "12+",
+    no: "2+",
     title: "Years of <br /> Experience",
   },
 
   {
     id: 2,
-    no: "97+",
+    no: "10+",
     title: "Completed <br /> Projects",
   },
 
-  {
-    id: 3,
-    no: "81+",
-    title: "Happy <br /> Customers",
-  },
+  // {
+  //   id: 3,
+  //   no: "81+",
+  //   title: "Happy <br /> Customers",
+  // },
 
-  {
-    id: 4,
-    no: "53+",
-    title: " Awards <br /> Won",
-  },
+  // {
+  //   id: 4,
+  //   no: "53+",
+  //   title: " Awards <br /> Won",
+  // },
 ];
 
 export const resume = [
@@ -150,54 +155,53 @@ export const resume = [
     id: 1,
     category: "experience",
     icon: <FaBriefcase />,
-    year: "2018 - PRESENT",
-    title: "Web Developer <span> Envato </span>",
-    desc: "Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore adipisicing elit,",
+    year: "Sep 2023 - May 2024",
+    title: "Full-stack Developer <span> OneTap </span>",
+    desc: "In my role as a Full-stack developer, I seamlessly blended front-end and back-end tasks, leveraging HTML, CSS, JavaScript, Python, and SQL. Beyond traditional development, I incorporated UI/UX design skills to craft intuitive interfaces. From responsive design to database integration, my contributions ensured efficient project execution and enhanced user satisfaction.",
   },
 
   {
     id: 2,
     category: "experience",
     icon: <FaBriefcase />,
-    year: "2013 - 2018",
-    title: "UI/UX Designer <span> Themeforest </span>",
-    desc: "Lorem incididunt dolor sit amet, consectetur eiusmod dunt doldunt dol elit, tempor incididunt",
+    year: "Aug 2022 - Apr 2023",
+    title: "Software Developer <span> Line Addis Consultancy </span>",
+    desc: "As a software Developer, I craft web pages using HTML, CSS, JavaScript, and Python. I design intuitive user interfaces, maintain brand consistency, and conduct rigorous testing. My documentation and code reviews ensure smooth collaboration using Jira Software.",
   },
 
   {
     id: 3,
     category: "experience",
     icon: <FaBriefcase />,
-    year: "2005 - 2013",
-    title: "Consultant <span> Videohive </span>",
-    desc: "Lorem ipsum dolor sit amet, tempor incididunt ut laboreconsectetur elit, sed do eiusmod tempor duntt",
+    year: "Nov 2021 - May 2022",
+    title: "Backend Developer <span> Bete-Semay Creative Media </span>",
+    desc: "As a backend developer, I am tasked with designing elegant, efficient, and scalable solutions which allow fast feature development with stable infrastructure. This includes designing data models for database abstractions, creating server endpoints for user requests,",
   },
 
   {
     id: 4,
     category: "education",
     icon: <FaGraduationCap />,
-    year: "2015",
-    title: "Engineering Degree <span> Oxford University </span>",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do tempor incididunt ut labore",
+    year: "2016-2021",
+    title: "Software Engineering <span> Addis Ababa University </span>",
+    desc: "Bachelor of Science in Software Engineering",
   },
 
   {
     id: 5,
     category: "education",
     icon: <FaGraduationCap />,
-    year: "2012",
-    title: "Master Degree <span> KIEV University </span>",
-    desc: "Lorem incididunt dolor sit amet, consectetur eiusmod dunt doldunt dol elit, tempor incididunt",
+    year: "2023-2026",
+    title: "Information Systems <span> Addis Ababa University </span>",
+    desc: "Master of Science in Information Systems",
   },
-
   {
     id: 6,
     category: "education",
     icon: <FaGraduationCap />,
-    year: "2009",
-    title: "Bachelor Degree <span> Tunis High School </span>",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ut labore",
+    year: "2023-2026",
+    title: "Information Systems <span> Addis Ababa University </span>",
+    desc: "Master of Science in Information Systems",
   },
 ];
 
@@ -205,7 +209,7 @@ export const skills = [
   {
     id: 1,
     title: "Html",
-    percentage: "25",
+    percentage: "50",
   },
 
   {
@@ -216,38 +220,49 @@ export const skills = [
 
   {
     id: 3,
-    title: "Css",
+    title: "CSS",
     percentage: "70",
   },
-
   {
     id: 4,
-    title: "Php",
-    percentage: "66",
+    title: "Wordpress",
+    percentage: "80",
   },
-
   {
     id: 5,
-    title: "Wordpress",
-    percentage: "95",
+    title: "React",
+    percentage: "80",
   },
 
   {
     id: 6,
-    title: "Jquery",
-    percentage: "50",
+    title: "React-Native",
+    percentage: "70",
   },
-
   {
     id: 7,
-    title: "Angular",
-    percentage: "65",
+    title: "Node",
+    percentage: "75",
   },
-
   {
     id: 8,
-    title: "React",
-    percentage: "45",
+    title: "Express",
+    percentage: "75",
+  },
+  {
+    id: 9,
+    title: "Django",
+    percentage: "50",
+  },
+  {
+    id: 10,
+    title: "Photoshop",
+    percentage: "75",
+  },
+  {
+    id: 11,
+    title: "Figma",
+    percentage: "80",
   },
 ];
 

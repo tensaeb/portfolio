@@ -9,12 +9,14 @@ import ResumeItem from "../../components/About/ResumeItem";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
+
 import { fetchPersonalInfoData } from "../../app/features/personalInfoSlice";
 import Loading from "../../components/Loading";
 import { fetchStatsData } from "../../app/features/statsSlice";
 import { fetchSkillsData } from "../../app/features/skillsSlice";
 import { fetchResumeData } from "../../app/features/resumeSlice";
-import { FaDribbble, FaGithub, FaTwitter } from "react-icons/fa";
+import Socials from "../../components/About/Socials";
+import { resume } from "../../data";
 
 const About = () => {
   const dispatch = useDispatch();
@@ -56,13 +58,6 @@ const About = () => {
     return <div>Error: Something went wrong</div>;
   }
 
-  const { personalInfoData, statsData, skillsData, resumeData } = {
-    personalInfoData: personalInfoState.personalInfoData,
-    statsData: statsState.statsData,
-    skillsData: skillsState.skillsData,
-    resumeData: resumeState.resumeData,
-  };
-
   return (
     <main className="section container">
       <section className="about">
@@ -73,40 +68,14 @@ const About = () => {
           <div className="about_info">
             <h3 className="section_subtitle">Personal Info</h3>
             <ul className="info_list grid">
-              {personalInfoData &&
-                personalInfoData.map((item) => {
-                  return <Info item={item} key={item.id} />;
-                })}
+              <Info />
             </ul>
             <div className="contact_socials">
-              <a
-                href="https://github.com/tensaeb"
-                className="contact_social-link"
-              >
-                <FaGithub />
-              </a>
-              <a
-                href="https://dribbble.com/tensaeb"
-                className="contact_social-link"
-              >
-                <FaDribbble />
-              </a>
-              <a
-                href="https://twitter.com/tensaeb"
-                className="contact_social-link"
-              >
-                <FaTwitter />
-              </a>
-              {/* <a href="https://youtube.com" className="contact_social-link">
-                <FaYoutube />
-              </a> */}
+              <Socials />
             </div>
           </div>
           <div className="stats grid">
-            {statsData &&
-              statsData.map((item) => {
-                return <Stats item={item} key={item.id} />;
-              })}
+            <Stats />
           </div>
         </div>
       </section>
@@ -114,10 +83,7 @@ const About = () => {
       <section className="skills">
         <h3 className="section_subtitle subtitle_center">My Skills</h3>
         <div className="skills_container grid">
-          {skillsData &&
-            skillsData.map((item) => {
-              return <Skills item={item} key={item.id} />;
-            })}
+          <Skills />
         </div>
       </section>
       <div className="separator"></div>
@@ -127,14 +93,21 @@ const About = () => {
         </h3>
 
         <div className="resume_container grid">
-          {resumeData &&
-            resumeData.map((item) => {
-              return (
-                <div className="resume_data" key={item.id}>
-                  <ResumeItem item={item} />
-                </div>
-              );
+          <div className="resume_data">
+            {resume.map((item) => {
+              console.log(item);
+              if (item.category === "experience") {
+                return <ResumeItem key={item.id} item={item} />;
+              }
             })}
+          </div>
+          <div className="resume_data">
+            {resume.map((item) => {
+              if (item.category === "education") {
+                return <ResumeItem key={item.id} item={item} />;
+              }
+            })}
+          </div>
         </div>
       </section>
     </main>

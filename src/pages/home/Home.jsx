@@ -1,56 +1,34 @@
 import { Link } from "react-router-dom";
-// import Profile from "../../assets/home.jpg";
+import Profile from "../../assets/home.jpg";
 import { FaArrowRight } from "react-icons/fa6";
 import "./home.css";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { fetchPersonalInfoData } from "../../app/features/personalInfoSlice";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 import Loading from "../../components/Loading";
 import { TypeAnimation } from "react-type-animation";
+import ReactGA from "react-ga4";
 
 const Home = () => {
-  const dispatch = useDispatch();
-  const personalInfoState = useSelector((state) => state.personalInfo);
+  ReactGA.send({
+    hitType: "pageview",
+    page: "/",
+    title: "Home",
+  });
 
-  useEffect(() => {
-    dispatch(fetchPersonalInfoData()).catch((error) => {
-      // Handle errors here or in the Redux slice
-      toast.error(error.message, { position: toast.POSITION.BOTTOM_CENTER });
-    });
-  }, [dispatch]);
-
-  // console.log("personalInfoState:", personalInfoState);
-
-  if (!personalInfoState || personalInfoState.loading) {
+  if (!Profile) {
     return <Loading />;
-  }
-
-  const { personalInfoData, error } = personalInfoState;
-
-  if (!personalInfoData) {
-    return <Loading />;
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
   }
   return (
     <>
       {/* <Loading /> */}
       <section className="home section grid">
-        {/* Map over the data array and render images */}
-        {personalInfoData &&
-          personalInfoData.map((item, index) => (
-            <img
-              key={index}
-              className="home_img"
-              src={item.img}
-              alt="Tensae Profile"
-              loading="lazy" // Lazy loading
-              sizes="(max-width: 600px) 100vw, 50vw" // Responsive image sizes
-            />
-          ))}
+        <img
+          className="home_img"
+          src={Profile}
+          alt="Tensae Profile"
+          loading="lazy" // Lazy loading
+          sizes="(max-width: 600px) 100vw, 50vw" // Responsive image sizes
+        />
+
         <div className="home_content">
           <div className="home_data">
             <h1 className="home_title">

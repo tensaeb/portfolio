@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
+import ReactGA from "react-ga4";
 //pages
 import Home from "./pages/home/Home.jsx";
 import About from "./pages/about/About";
@@ -10,6 +11,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Themes from "./components/Theme/Themes.jsx";
 
 function App() {
+  ReactGA.initialize("G-WHHLXP0EL0");
   return (
     <BrowserRouter>
       <Navbar />
