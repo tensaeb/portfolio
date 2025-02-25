@@ -78,7 +78,7 @@ export const personalInfo = [
   {
     id: 4,
     title: "Age : ",
-    description: "26 Years",
+    description: "27 Years",
   },
 
   // {
@@ -195,74 +195,163 @@ export const resume = [
     title: "Information Systems <span> Addis Ababa University </span>",
     desc: "Master of Science in Information Systems",
   },
-  {
-    id: 6,
-    category: "education",
-    icon: <FaGraduationCap />,
-    year: "2023-2026",
-    title: "Information Systems <span> Addis Ababa University </span>",
-    desc: "Master of Science in Information Systems",
-  },
+  // {
+  //   id: 6,
+  //   category: "education",
+  //   icon: <FaGraduationCap />,
+  //   year: "2023-2026",
+  //   title: "Information Systems <span> Addis Ababa University </span>",
+  //   desc: "Master of Science in Information Systems",
+  // },
 ];
 
 export const skills = [
+  // Front-End Technologies
   {
     id: 1,
     title: "Html",
-    percentage: "50",
+    iconLink:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
   },
-
   {
     id: 2,
-    title: "Javascript",
-    percentage: "89",
+    title: "CSS",
+    iconLink:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
   },
-
   {
     id: 3,
-    title: "CSS",
-    percentage: "70",
+    title: "Javascript",
+    iconLink:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
   },
   {
     id: 4,
-    title: "Wordpress",
-    percentage: "80",
+    title: "TypeScript",
+    iconLink:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
   },
   {
     id: 5,
     title: "React",
-    percentage: "80",
+    iconLink:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
   },
-
   {
     id: 6,
     title: "React-Native",
-    percentage: "70",
+    iconLink:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", // Using React icon as fallback
   },
   {
     id: 7,
-    title: "Node",
-    percentage: "75",
+    title: "Next JS",
+    iconLink:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
   },
   {
     id: 8,
-    title: "Express",
-    percentage: "75",
+    title: "Redux",
+    iconLink:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redux/redux-original.svg",
   },
   {
     id: 9,
-    title: "Django",
-    percentage: "50",
+    title: "Material UI",
+    iconLink:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/materialui/materialui-original.svg",
   },
   {
     id: 10,
-    title: "Photoshop",
-    percentage: "75",
+    title: "Tailwind CSS",
+    iconLink:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
   },
+
+  // Back-End Technologies
   {
     id: 11,
-    title: "Figma",
-    percentage: "80",
+    title: "Node",
+    iconLink:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+  },
+  {
+    id: 12,
+    title: "Express",
+    iconLink:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+  },
+  {
+    id: 13,
+    title: "Python",
+    iconLink:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
+  },
+  {
+    id: 14,
+    title: "Django",
+    iconLink:
+      "https://raw.githubusercontent.com/devicons/devicon/6910f0503efdd315c8f9b858234310c06e04d9c0/icons/django/django-plain.svg",
+  },
+  {
+    id: 15,
+    title: "Djang Rest Framework",
+    iconLink:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/djangorest/djangorest-original.svg",
+  },
+  {
+    id: 16,
+    title: "GraphQL",
+    iconLink:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain.svg",
+  },
+
+  // Databases
+  {
+    id: 17,
+    title: "Mongo DB",
+    iconLink:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg",
+  },
+  {
+    id: 18,
+    title: "MySQL",
+    iconLink:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg",
+  },
+  {
+    id: 19,
+    title: "PostgreSQL",
+    iconLink:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg",
+  },
+
+  // Other Tools
+  {
+    id: 20,
+    title: "Docker",
+    iconLink:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original-wordmark.svg",
+  },
+  {
+    id: 21,
+    title: "Wordpress",
+    iconLink:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg",
+  },
+
+  // Data Science (Optional - You might want to group these differently)
+  {
+    id: 22,
+    title: "Scikit-Learn",
+    iconLink:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg",
+  },
+  {
+    id: 23,
+    title: "Pandas",
+    iconLink:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg",
   },
 ];
 

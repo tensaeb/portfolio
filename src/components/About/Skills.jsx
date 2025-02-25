@@ -1,6 +1,4 @@
 /* eslint-disable react/prop-types */
-import { CircularProgressbar } from "react-circular-progressbar";
-import "react-circular-progressbar/dist/styles.css";
 import { skills } from "../../data";
 
 const Skills = () => {
@@ -9,14 +7,12 @@ const Skills = () => {
       {skills &&
         skills.map((skill) => {
           return (
-            <div key={skill.id} className="progress_box">
-              <div className="progress_circle">
-                <CircularProgressbar
-                  strokeWidth={7.5}
-                  text={`${skill.percentage}%`}
-                  value={skill.percentage}
-                />
-              </div>
+            <div key={skill.id} className="skills_box">
+              <img
+                src={skill.iconLink}
+                alt={skill.title}
+                className="skills_icon"
+              />
               <h3 className="skills_title">{skill.title}</h3>
             </div>
           );

@@ -1,17 +1,16 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useDispatch, useSelector } from "react-redux";
 import PortfolioItem from "../../components/Portfolio/PortfolioItem";
-// import { portfolio } from "../../data";
 import "./portfolio.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react"; // Import useMemo
 import { fetchPortfolioCatData } from "../../app/features/portfolioCategoriesSlice";
+import { fetchPortfolioData } from "../../app/features/portfolioSlice";
 import { toast } from "react-toastify";
 import Loading from "../../components/Loading";
 import TabComponent from "../../components/Portfolio/TabComponent";
-import { fetchPortfolioData } from "../../app/features/portfolioSlice";
 
 const Portfolio = () => {
   const [activeTab, setActiveTab] = useState("");
-  const [showAllPortfolios, setShowAllPortfolios] = useState(false);
   const dispatch = useDispatch();
   const portfolioCatState = useSelector((state) => state.portfolioCategories);
   const portfolioState = useSelector((state) => state.portfolios);
@@ -19,8 +18,10 @@ const Portfolio = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        dispatch(fetchPortfolioCatData());
-        dispatch(fetchPortfolioData());
+        await Promise.all([
+          dispatch(fetchPortfolioCatData()),
+          dispatch(fetchPortfolioData()),
+        ]);
       } catch (error) {
         toast.error(error.message, { position: "right" });
       }
@@ -29,38 +30,46 @@ const Portfolio = () => {
     fetchData();
   }, [dispatch]);
 
-  if (portfolioCatState.loading || portfolioState.loading) {
-    return <Loading />;
-  }
+  const {
+    loading: catLoading,
+    error: catError,
+    portfolioCatData,
+  } = portfolioCatState;
+  const {
+    loading: portfolioLoading,
+    error: portfolioError,
+    portfolioData,
+  } = portfolioState;
 
-  if (portfolioCatState.error || portfolioState.error) {
-    return <div>Error: Something went wrong</div>;
-  }
-
-  const { portfolioCatData, portfolioData } = {
-    portfolioCatData: portfolioCatState.portfolioCatData,
-    portfolioData: portfolioState.portfolioData,
-  };
-  if (!portfolioCatData || !portfolioData) {
-    return <Loading />;
-  }
+  // Ensure portfolioCatData and portfolioData are initialized to an empty array
+  const portfolioCatDataSafe = portfolioCatData || [];
+  const portfolioDataSafe = portfolioData || [];
 
   const handleTabClick = (category) => {
-    setShowAllPortfolios(category === "All");
     setActiveTab(category);
   };
 
-  const filteredPortfolio = activeTab
-    ? portfolioData.filter((item) =>
-        item.portfolioCategories.some(
-          (category) => category.title === activeTab
-        )
-      )
-    : portfolioData;
+  const filteredPortfolio = useMemo(() => {
+    if (!portfolioDataSafe || portfolioDataSafe.length === 0) {
+      return []; // Return an empty array if portfolioData is empty
+    }
 
-  console.log("====================================");
-  console.log("filteredPortfolio: ", filteredPortfolio);
-  console.log("====================================");
+    if (!activeTab || activeTab === "All") {
+      return portfolioDataSafe;
+    }
+
+    return portfolioDataSafe.filter((item) =>
+      item.portfolioCategories.some((category) => category.title === activeTab)
+    );
+  }, [activeTab, portfolioDataSafe]);
+
+  if (catLoading || portfolioLoading) {
+    return <Loading />;
+  }
+
+  if (catError || portfolioError) {
+    return <div>Error: Something went wrong</div>;
+  }
 
   return (
     <section className="portfolio section">
@@ -68,26 +77,19 @@ const Portfolio = () => {
         My <span>Portfolio</span>
       </h2>
       <div className="tab-container">
-        {portfolioCatData &&
-          portfolioCatData.map((item) => {
-            return (
-              <TabComponent
-                key={item.id}
-                item={item}
-                active={activeTab}
-                onClick={() => handleTabClick(item.title)}
-              />
-            );
-          })}
+        {portfolioCatDataSafe.map((item) => (
+          <TabComponent
+            key={item.id}
+            item={item}
+            active={activeTab}
+            onClick={() => handleTabClick(item.title)}
+          />
+        ))}
       </div>
       <div className="portfolio_container container grid">
-        {showAllPortfolios
-          ? portfolioData.map((item) => (
-              <PortfolioItem key={item.id} item={item} />
-            ))
-          : filteredPortfolio.map((item) => (
-              <PortfolioItem key={item.id} item={item} />
-            ))}
+        {filteredPortfolio.map((item) => (
+          <PortfolioItem key={item.id} item={item} />
+        ))}
       </div>
     </section>
   );

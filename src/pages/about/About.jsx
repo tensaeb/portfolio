@@ -1,63 +1,17 @@
-//component
+// component
 import Info from "../../components/About/Info";
 // import CV from "../../assets/CV.pdf";
 import Stats from "../../components/About/Stats";
 import Skills from "../../components/About/Skills";
-//css
+// css
 import "./about.css";
 import ResumeItem from "../../components/About/ResumeItem";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { toast } from "react-toastify";
 
-import { fetchPersonalInfoData } from "../../app/features/personalInfoSlice";
-import Loading from "../../components/Loading";
-import { fetchStatsData } from "../../app/features/statsSlice";
-import { fetchSkillsData } from "../../app/features/skillsSlice";
-import { fetchResumeData } from "../../app/features/resumeSlice";
 import Socials from "../../components/About/Socials";
 import { resume } from "../../data";
+import { skills } from "../../data"; // Import the skills array
 
 const About = () => {
-  const dispatch = useDispatch();
-  const personalInfoState = useSelector((state) => state.personalInfo);
-  const statsState = useSelector((state) => state.stats);
-  const skillsState = useSelector((state) => state.skills);
-  const resumeState = useSelector((state) => state.resume);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        dispatch(fetchPersonalInfoData());
-        dispatch(fetchStatsData());
-        dispatch(fetchSkillsData());
-        dispatch(fetchResumeData());
-      } catch (error) {
-        toast.error(error.message, { position: toast.POSITION.BOTTOM_CENTER });
-      }
-    };
-
-    fetchData();
-  }, [dispatch]);
-
-  if (
-    personalInfoState.loading ||
-    statsState.loading ||
-    skillsState.loading ||
-    resumeState.loading
-  ) {
-    return <Loading />;
-  }
-
-  if (
-    personalInfoState.error ||
-    statsState.error ||
-    skillsState.error ||
-    resumeState.error
-  ) {
-    return <div>Error: Something went wrong</div>;
-  }
-
   return (
     <main className="section container">
       <section className="about">
@@ -77,13 +31,6 @@ const About = () => {
           <div className="stats grid">
             <Stats />
           </div>
-        </div>
-      </section>
-      <div className="separator"></div>
-      <section className="skills">
-        <h3 className="section_subtitle subtitle_center">My Skills</h3>
-        <div className="skills_container grid">
-          <Skills />
         </div>
       </section>
       <div className="separator"></div>
@@ -108,6 +55,13 @@ const About = () => {
               }
             })}
           </div>
+        </div>
+      </section>
+      <div className="separator"></div>
+      <section className="skills">
+        <h3 className="section_subtitle subtitle_center">My Skills</h3>
+        <div className="skills_container grid">
+          <Skills skills={skills} /> {/* Pass skills as prop */}
         </div>
       </section>
     </main>

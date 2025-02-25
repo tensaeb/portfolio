@@ -130,7 +130,7 @@
   border-radius: 30px;
 }
 
-/* .button.tab.active {
+.tab.active {
   background-color: var(--first-color);
   color: var(--text-white);
-} */
+}
